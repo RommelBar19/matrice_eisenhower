@@ -1,0 +1,94 @@
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+h2 {
+    text-align: center;
+    margin-top: 0%;
+    background-color: beige;
+    border: 1px solid #55564F;
+}
+.contenitore {
+    background-color: #D3D5C8;
+    margin: auto;
+    border: 5px solid #55564F;
+    display: grid;
+    box-sizing: border-box;
+}
+.menu {
+    height: 155px;
+    width: 570px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.contenitore.menu section {
+    line-height: 1.2; /* aumenta lo spazio tra le righe di testo */
+    padding: 2px;
+}
+
+#task_desc {
+    width: 70%;
+}
+#task_desc, #task_title {
+    margin: 1px;
+}
+.checkbox {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.matrice {
+    margin-top: 10px;
+    height: 800px;
+    width: 800px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    place-items: center;
+}
+.urg_imp, .urg_nimp, .nurg_imp, .nurg_nimp {
+    height: 100%;
+    width: 100%;
+    border: 2px solid #55564F;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.urg_imp {
+    background-color: #FF70A6;
+}
+
+.urg_nimp {
+    background-color: #FFD670;
+}
+
+.nurg_imp {
+    background-color: #FF9770;
+}
+
+.nurg_nimp {
+    background-color: #70D6FF;
+}
+
+h3 {
+    margin-top: 0%;
+    text-align: center;
+}
+a, .submit-btn {
+    border: 1px solid #55564F;
+    background-color: #d8d8d5;
+    color: black;
+    display: inline-block;
+    padding: 8px 16 px;
+    font-style: normal;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrice Urgente-Importante</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='eisenhower.css')}}"/>
+</head>
+<body>
+    <h1>Matrice Urgente-Importante</h1>
+    <div class="contenitore menu">
+        <section>
+            <h2>Nuova tarea</h2>
+            <form method="POST" action="/eisenhower">
+                <input type="hidden" name="task_id" id="task_id">
+                <label>Inserisce la descrizione del task
+                    <input type="text" name="task_title" id="task_title" 
+                    value="{{ edit_task['title'] if edit_task else ''}}" required>
+                </label><br>
+                <label>Inserisce la descrizione
+                    <input type="text" name="task_desc" id="task_desc" 
+                    value="{{ edit_task['desc'] if edit_task else ''}}" required>
+                </label><br> 
+                <label>Importante
+                    <input type="checkbox" id="important" name="important" value="important"
+                        {% if edit_task and edit_task['important'] %} 
+                        checked 
+                        {% endif %}>
+                </label>
+                <label> Urgente
+                    <input type="checkbox" id="urgent" name="urgent" value="urgent"
+                        {% if edit_task and edit_task['urgent'] %}
+                        checked
+                        {% endif %}>
+                </label><br>
+                <input type="submit" class="submit-btn">
+            </form>
+        </section>
+    </div>
+    <div class="contenitore matrice">
+        <div class="urg_imp">
+            <section>
+                <h3>Urgente-Importante</h3>
+                <ul>
+                    {% for task in tasks["task11"] %}
+                    <li>
+                        <h4>{{task.title}}</h4>
+                        <p>{{task.desc}}</p>
+                        <form method="POST" action="/eisenhower">
+                            <input type="hidden" name="delete_task_id" value="{{task._id}}">
+                            <input type="submit" value="elimina" class="submit-btn">
+                        </form>
+                        <a href = "/eisenhower?edit={{ task._id }}">Aggiorna</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+        <div class="urg_nimp">
+            <section>
+                <h3>Urgente-Non Importante</h3>
+                <ul>
+                    {% for task in tasks["task10"] %}
+                    <li>
+                        <h4>{{task.title}}</h4>
+                        <p>{{task.desc}}</p>
+                        <form method="POST" action="/eisenhower">
+                            <input type="hidden" name="delete_task_id" value="{{task._id}}">
+                            <input type="submit" value="elimina" class="submit-btn">
+                        </form>
+                        <a href = "/eisenhower?edit={{ task._id }}">Aggiorna</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+        <div class="nurg_imp">
+            <section>
+                <h3>Non Urgente-Importante</h3>
+                <ul>
+                    {% for task in tasks["task01"] %}
+                    <li>
+                        <h4>{{task.title}}</h4>
+                        <p>{{task.desc}}</p>
+                        <form method="POST" action="/eisenhower">
+                            <input type="hidden" name="delete_task_id" value="{{task._id}}">
+                            <input type="submit" value="elimina" class="submit-btn">
+                        </form>
+                        <a href = "/eisenhower?edit={{ task._id }}">Aggiorna</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+        <div class="nurg_nimp">
+            <section>
+                <h3>Non Urgente-Non Importante</h3>
+                <ul>
+                    {% for task in tasks["task00"] %}
+                    <li>
+                        <h4>{{task.title}}</h4>
+                        <p>{{task.desc}}</p>
+                        <form method="POST" action="/eisenhower">
+                            <input type="hidden" name="delete_task_id" value="{{task._id}}">
+                            <input type="submit" value="elimina" class="submit-btn">
+                        </form>
+                        <a href = "/eisenhower?edit={{ task._id }}">Aggiorna</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
